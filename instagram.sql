@@ -26,6 +26,15 @@ CREATE TABLE comments(
     FOREIGN KEY (photo_id) REFERENCES photos(id)
 );
 
+CREATE TABLE likes(
+    user_id INTEGER NOT NULL,
+    photo_id INTEGER NOT NULL,
+    create_at TIMESTAMP DEFAULT NOW(),
+    FOREIGN KEY(user_id) REFERENCES users(id),
+    FOREIGN KEY(photo_id) REFERENCES photos(id),
+    PRIMARY key(user_id, photo_id)
+);
+
 INSERT INTO users(username) VALUES
 ('Captain'),
 ('IronMan'),
@@ -40,6 +49,17 @@ INSERT INTO comments(comment_text, user_id, photo_id) VALUES
 ('I can do this all day', 1, 2),
 ('I am Iron man', 3 , 2),
 ('I know it', 2, 1);
+
+INSERT INTO likes(user_id, photo_id) VALUES
+(1,1), (2,1), (1,2), (1,3), (3,3); 
+
+-- This won't work because an user can give only one like for each photo
+-- SELECT 
+--     photos.image_url,
+--     users.username
+-- FROM photos
+-- JOIN users
+--     ON photos.user_id = users.id;
 
 -- SELECT 
 --     photos.image_url,
