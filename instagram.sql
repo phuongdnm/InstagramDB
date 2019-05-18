@@ -1,4 +1,4 @@
-DROP DATABASE ig_clone;
+DROP DATABASE IF EXISTS ig_clone;
 CREATE DATABASE ig_clone;
 USE ig_clone;
 
@@ -58,26 +58,26 @@ CREATE TABLE photo_tags(
     PRIMARY KEY(photo_id, tag_id)
 );
 
-INSERT INTO users(username) VALUES
-('Captain'),
-('IronMan'),
-('Thor');
+-- INSERT INTO users(username) VALUES
+-- ('Captain'),
+-- ('IronMan'),
+-- ('Thor');
 
-INSERT INTO photos(image_url, user_id) VALUES
-('/image1', 1),
-('/image2', 2),
-('/image3', 2);
+-- INSERT INTO photos(image_url, user_id) VALUES
+-- ('/image1', 1),
+-- ('/image2', 2),
+-- ('/image3', 2);
 
-INSERT INTO comments(comment_text, user_id, photo_id) VALUES
-('I can do this all day', 1, 2),
-('I am Iron man', 3 , 2),
-('I know it', 2, 1);
+-- INSERT INTO comments(comment_text, user_id, photo_id) VALUES
+-- ('I can do this all day', 1, 2),
+-- ('I am Iron man', 3 , 2),
+-- ('I know it', 2, 1);
 
-INSERT INTO likes(user_id, photo_id) VALUES
-(1,1), (2,1), (1,2), (1,3), (3,3); 
+-- INSERT INTO likes(user_id, photo_id) VALUES
+-- (1,1), (2,1), (1,2), (1,3), (3,3); 
 
-INSERT INTO follows(follower_id, followee_id) VALUES
-(1,2), (1,3), (3,1), (2,3);
+-- INSERT INTO follows(follower_id, followee_id) VALUES
+-- (1,2), (1,3), (3,1), (2,3);
 
 -- This won't work because an user can give only one like for each photo
 -- SELECT 
