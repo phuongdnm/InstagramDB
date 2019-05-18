@@ -35,6 +35,15 @@ CREATE TABLE likes(
     PRIMARY key(user_id, photo_id)
 );
 
+CREATE TABLE follows(
+    follower_id INTEGER NOT NULL,
+    followee_id INTEGER NOT NULL,
+    created_at TIMESTAMP DEFAULT NOW(),
+    FOREIGN KEY (follower_id) REFERENCES users(id),
+    FOREIGN KEY (followee_id) REFERENCES users(id),
+    PRIMARY KEY (follower_id, followee_id)
+);
+
 INSERT INTO users(username) VALUES
 ('Captain'),
 ('IronMan'),
@@ -52,6 +61,9 @@ INSERT INTO comments(comment_text, user_id, photo_id) VALUES
 
 INSERT INTO likes(user_id, photo_id) VALUES
 (1,1), (2,1), (1,2), (1,3), (3,3); 
+
+INSERT INTO follows(follower_id, followee_id) VALUES
+(1,2), (1,3), (3,1), (2,3);
 
 -- This won't work because an user can give only one like for each photo
 -- SELECT 
