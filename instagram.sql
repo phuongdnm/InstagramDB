@@ -12,7 +12,7 @@ CREATE TABLE photos(
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
     image_url VARCHAR(255) NOT NULL,
     user_id INTEGER NOT NULL,
-    create_at TIMESTAMP DEFAULT NOW(),
+    created_at TIMESTAMP DEFAULT NOW(),
     FOREIGN KEY(user_id) REFERENCES users(id)
 );
 
@@ -29,7 +29,7 @@ CREATE TABLE comments(
 CREATE TABLE likes(
     user_id INTEGER NOT NULL,
     photo_id INTEGER NOT NULL,
-    create_at TIMESTAMP DEFAULT NOW(),
+    created_at TIMESTAMP DEFAULT NOW(),
     FOREIGN KEY(user_id) REFERENCES users(id),
     FOREIGN KEY(photo_id) REFERENCES photos(id),
     PRIMARY key(user_id, photo_id)
@@ -47,7 +47,7 @@ CREATE TABLE follows(
 CREATE TABLE tags(
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
     tag_name VARCHAR(255) UNIQUE, 
-    create_at TIMESTAMP DEFAULT NOW()
+    created_at TIMESTAMP DEFAULT NOW()
 );
 
 CREATE TABLE photo_tags(
