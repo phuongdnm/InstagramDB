@@ -5,7 +5,7 @@
   - SELECT, CRUD
   - Aggregate functions
   - Data types and Logical operations
-  - JOINa
+  - JOIN
 
 
 ### Installation
